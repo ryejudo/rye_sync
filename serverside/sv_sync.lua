@@ -1,0 +1,1 @@
+print("^1[INFO]^0 ^2rye_sync^0 wurde gestartet.")
