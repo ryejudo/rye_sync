@@ -1,64 +1,52 @@
-local bodyParts = {
-    SKEL_ROOT = 0, FB_R_Brow_Out_000 = 1356, SKEL_L_Toe0 = 2108, MH_R_Elbow = 2992,
-    SKEL_L_Finger01 = 4089, SKEL_L_Finger02 = 4090, SKEL_L_Finger31 = 4137, SKEL_L_Finger32 = 4138,
-    SKEL_L_Finger41 = 4153, SKEL_L_Finger42 = 4154, SKEL_L_Finger11 = 4169, SKEL_L_Finger12 = 4170,
-    SKEL_L_Finger21 = 4185, SKEL_L_Finger22 = 4186, RB_L_ArmRoll = 5232, IK_R_Hand = 6286,
-    RB_R_ThighRoll = 6442, SKEL_R_Clavicle = 10706, FB_R_Lip_Corner_000 = 11174, SKEL_Pelvis = 11816,
-    IK_Head = 12844, SKEL_L_Foot = 14201, MH_R_Knee = 16335, FB_LowerLipRoot_000 = 17188,
-    FB_R_Lip_Top_000 = 17719, SKEL_L_Hand = 18905, FB_R_CheekBone_000 = 19336,
-    FB_UpperLipRoot_000 = 20178, FB_L_Lip_Top_000 = 20279, FB_LowerLip_000 = 20623,
-    SKEL_R_Toe0 = 20781, FB_L_CheekBone_000 = 21550, MH_L_Elbow = 22711, SKEL_Spine0 = 23553,
-    RB_L_ThighRoll = 23639, PH_R_Foot = 24806, SKEL_Spine1 = 24816, SKEL_Spine2 = 24817,
-    SKEL_Spine3 = 24818, FB_L_Eye_000 = 25260, SKEL_L_Finger00 = 26610, SKEL_L_Finger10 = 26611,
-    SKEL_L_Finger20 = 26612, SKEL_L_Finger30 = 26613, SKEL_L_Finger40 = 26614, FB_R_Eye_000 = 27474,
-    SKEL_R_Forearm = 28252, PH_R_Hand = 28422, FB_L_Lip_Corner_000 = 29868, SKEL_Head = 31086,
-    IK_R_Foot = 35502, RB_Neck_1 = 35731, IK_L_Hand = 36029, SKEL_R_Calf = 36864,
-    RB_R_ArmRoll = 37119, FB_Brow_Centre_000 = 37193, SKEL_Neck_1 = 39317,
-    SKEL_R_UpperArm = 40269, FB_R_Lid_Upper_000 = 43536, RB_R_ForeArmRoll = 43810,
-    SKEL_L_UpperArm = 45509, FB_L_Lid_Upper_000 = 45750, MH_L_Knee = 46078, FB_Jaw_000 = 46240,
-    FB_L_Lip_Bot_000 = 47419, FB_Tongue_000 = 47495, FB_R_Lip_Bot_000 = 49979,
-    SKEL_R_Thigh = 51826, SKEL_R_Foot = 52301, IK_Root = 56604, SKEL_R_Hand = 57005,
-    SKEL_Spine_Root = 57597, PH_L_Foot = 57717, SKEL_L_Thigh = 58271, FB_L_Brow_Out_000 = 58331,
-    SKEL_R_Finger00 = 58866, SKEL_R_Finger10 = 58867, SKEL_R_Finger20 = 58868,
-    SKEL_R_Finger30 = 58869, SKEL_R_Finger40 = 58870, PH_L_Hand = 60309,
-    RB_L_ForeArmRoll = 61007, SKEL_L_Forearm = 61163, FB_UpperLip_000 = 61839,
-    SKEL_L_Calf = 63931, SKEL_R_Finger01 = 64016, SKEL_R_Finger02 = 64017,
-    SKEL_R_Finger31 = 64064, SKEL_R_Finger32 = 64065, SKEL_R_Finger41 = 64080,
-    SKEL_R_Finger42 = 64081, SKEL_R_Finger11 = 64096, SKEL_R_Finger12 = 64097,
-    SKEL_R_Finger21 = 64112, SKEL_R_Finger22 = 64113, SKEL_L_Clavicle = 64729,
-    FACIAL_facialRoot = 65068, IK_L_Foot = 65245
+local xYz9w = {
+    aB1C = 0, dE2F = 1356, gH3I = 2108, jK4L = 2992, mN5O = 4089, pQ6R = 4090, sT7U = 4137,
+    vW8X = 4138, yZ9A = 4153, bC0D = 4154, eF1G = 4169, hI2J = 4170, kL3M = 4185, nO4P = 4186,
+    qR5S = 5232, tU6V = 6286, wX7Y = 6442, zA8B = 10706, C0D1 = 11174, F2G3 = 11816, 
+    H4I5 = 12844, J6K7 = 14201, L8M9 = 16335, O0P1 = 17188, Q2R3 = 17719, S4T5 = 18905,
+    U6V7 = 19336, W8X9 = 20178, Y0Z1 = 20279, A2B3 = 20623, C4D5 = 20781, E6F7 = 21550,
+    G8H9 = 22711, I0J1 = 23553, K2L3 = 23639, M4N5 = 24806, O6P7 = 24816, Q8R9 = 24817,
+    S0T1 = 24818, U2V3 = 25260, W4X5 = 26610, Y6Z7 = 26611, B8C9 = 26612, D0E1 = 26613,
+    F2G3 = 26614, H4I5 = 27474, J6K7 = 28252, L8M9 = 28422, N0O1 = 29868, P2Q3 = 31086,
+    R4S5 = 35502, T6U7 = 35731, V8W9 = 36029, X0Y1 = 36864, Z2A3 = 37119, B4C5 = 37193,
+    D6E7 = 39317, F8G9 = 40269, H0I1 = 43536, J2K3 = 43810, L4M5 = 45509, N6O7 = 45750,
+    P8Q9 = 46078, R0S1 = 46240, T2U3 = 47419, V4W5 = 47495, X6Y7 = 49979, Z8A9 = 51826,
+    B0C1 = 52301, D2E3 = 56604, F4G5 = 57005, H6I7 = 57597, J8K9 = 57717, L0M1 = 58271,
+    N2O3 = 58331, P4Q5 = 58866, R6S7 = 58867, T8U9 = 58868, V0W1 = 58869, X2Y3 = 58870,
+    Z4A5 = 60309, B6C7 = 61007, D8E9 = 61163, F0G1 = 61839, H2I3 = 63931, J4K5 = 64016,
+    L6M7 = 64017, N8O9 = 64064, P0Q1 = 64065, R2S3 = 64080, T4U5 = 64081, V6W7 = 64096,
+    X8Y9 = 64097, Z0A1 = 64112, B2C3 = 64113, D4E5 = 64729, F6G7 = 65068, H8I9 = 65245
 }
 
-local function FindBoneKey(tableRef, searchValue)
-    for key, value in pairs(tableRef) do
-        if value == searchValue then return key end
+local function XyZw(a1b2, c3d4)
+    for e5f6, g7h8 in pairs(a1b2) do
+        if g7h8 == c3d4 then return e5f6 end
     end
 end
 
-RegisterNetEvent('rye_sync:sync')
-AddEventHandler('rye_sync:sync', function(bone, player)
-    local found, lastBone = GetPedLastDamageBone(PlayerPedId())
-    if found then
-        local damagedBone = FindBoneKey(bodyParts, lastBone)
-        if damagedBone then
-            if damagedBone == 'SKEL_Head' then
+RegisterNetEvent('A1B2C3')
+AddEventHandler('A1B2C3', function(aB1, cD2)
+    local eF3, gH4 = GetPedLastDamageBone(PlayerPedId())
+    if eF3 then
+        local iJ5 = XyZw(xYz9w, gH4)
+        if iJ5 then
+            if iJ5 == 'P2Q3' then
                 SetEntityHealth(PlayerPedId(), 0)
-                print('Headshot: ' .. lastBone)
+                print('Headshot: ' .. gH4)
             end
         else
-            print('Error, Missing ID: ' .. lastBone)
+            print('ERROR: ' .. gH4)
         end
     end
 end)
 
-AddEventHandler('gameEventTriggered', function(event, data)
-    if event == "CEventNetworkEntityDamage" then
-        local attacker, victim = data[1], data[2]
-        if attacker ~= victim and victim == PlayerPedId() and IsPedAPlayer(attacker) and IsPedAPlayer(victim) then
+AddEventHandler('xyZW', function(a1B2, c3D4)
+    if a1B2 == "XZEvent" then
+        local e5F6, g7H8 = c3D4[1], c3D4[2]
+        if e5F6 ~= g7H8 and g7H8 == PlayerPedId() and IsPedAPlayer(e5F6) and IsPedAPlayer(g7H8) then
             if IsPedArmed(PlayerPedId(), 6) then
-                local found, lastBone = GetPedLastDamageBone(attacker)
-                if found then
-                    TriggerEvent('rye_sync:sync', lastBone)
+                local i9J0, k1L2 = GetPedLastDamageBone(e5F6)
+                if i9J0 then
+                    TriggerEvent('A1B2C3', k1L2)
                 end
             end
         end
